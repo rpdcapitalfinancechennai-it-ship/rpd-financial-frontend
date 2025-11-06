@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { API } from "../api";
 export default function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [msg, setMsg] = useState("");
@@ -17,7 +17,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3001/api/auth/register", form);
+      const res = await axios.post(`${API}/api/auth/register`, form);
       setMsg(res.data.message);
       setTimeout(() => navigate("/login"), 1000);
     } catch (err) {
