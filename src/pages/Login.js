@@ -17,10 +17,10 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3001/api/auth/login", form);
+      const res = await axios.post(`${API}/api/auth/login`, form);
       localStorage.setItem("token", res.data.token);
       setMsg("Login successful!");
-      navigate("/"); // redirect to Home
+      navigate("/");
     } catch (err) {
       setMsg(err.response?.data?.message || "Error");
     }
