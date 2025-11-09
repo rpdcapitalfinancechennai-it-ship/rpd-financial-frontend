@@ -4,11 +4,11 @@ import logo from "../assets/logo.png";
 export default function Header() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const token = localStorage.getItem("token"); // 🔹 check if user is logged in
+  const token = localStorage.getItem("token"); //check if user is logged in
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/login"); // redirect to login after logout
+    navigate("/login"); //redirect to login after logout
   };
 
   return (
@@ -25,7 +25,6 @@ export default function Header() {
         />
       </div>
       <nav style={{ display: "flex", gap: 15, alignItems: "center" }}>
-        {/* Auth links */}
         {!token && (
           <>
             <Link to="/register" className={pathname === "/register" ? "active" : ""}>Register</Link>
@@ -35,7 +34,6 @@ export default function Header() {
         {token && (
           <button onClick={handleLogout} style={{ cursor: "pointer", marginTop : 0 }}>Logout</button>
         )}
-        {/* Main links */}
         {[
           { path: "/", label: "Home" },
           { path: "/service", label: "Service" },
@@ -48,8 +46,6 @@ export default function Header() {
             {label}
           </Link>
         ))}
-
-        
       </nav>
     </header>
   );

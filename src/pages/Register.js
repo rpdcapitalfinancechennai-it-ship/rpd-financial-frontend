@@ -9,7 +9,7 @@ export default function Register() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) navigate("/"); // already logged in → Home
+    if (token) navigate("/");
   }, [navigate]);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });

@@ -9,7 +9,7 @@ export default function Report() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10; // <-- 10 rows per page
+  const itemsPerPage = 10;
 
   const fetchReport = async () => {
     if (!start || !end) return alert("Select start and end dates");
@@ -19,7 +19,7 @@ export default function Report() {
         params: { type, start, end, t: Date.now() },
       });
       setData(res.data);
-      setCurrentPage(1); // reset to first page
+      setCurrentPage(1);
     } catch (err) {
       console.error("Error fetching report:", err.message);
       alert("Failed to fetch report");
@@ -46,7 +46,7 @@ export default function Report() {
   className="form-row"
   style={{
     display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)", // 4 columns
+    gridTemplateColumns: "repeat(4, 1fr)",
     gap: "15px",
     maxWidth: "800px",
     marginBottom: "20px",
@@ -54,7 +54,7 @@ export default function Report() {
     backgroundColor: "#f8f9fa",
     borderRadius: "8px",
     boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-    alignItems: "end" // align button to bottom
+    alignItems: "end"
   }}
 >
   <label style={{ display: "flex", flexDirection: "column", fontWeight: "500" }}>
