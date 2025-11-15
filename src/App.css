@@ -1,4 +1,7 @@
 /* App.css */
+body.home-page header {
+  position: relative;
+}
 
 /* --- Global Reset & Font --- */
 body {
@@ -40,6 +43,7 @@ header nav a {
   color: white;
   transition: all 0.3s ease;
 }
+
 
 header nav a.active {
   color: #ffa807;

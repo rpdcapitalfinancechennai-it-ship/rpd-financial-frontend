@@ -25,15 +25,6 @@ export default function Header() {
         />
       </div>
       <nav style={{ display: "flex", gap: 15, alignItems: "center" }}>
-        {!token && (
-          <>
-            <Link to="/register" className={pathname === "/register" ? "active" : ""}>Register</Link>
-            <Link to="/login" className={pathname === "/login" ? "active" : ""}>Login</Link>
-          </>
-        )}
-        {token && (
-          <button onClick={handleLogout} style={{ cursor: "pointer", marginTop : 0 }}>Logout</button>
-        )}
         {[
           { path: "/", label: "Home" },
           { path: "/service", label: "Service" },
@@ -46,6 +37,15 @@ export default function Header() {
             {label}
           </Link>
         ))}
+          {!token && (
+          <>
+            <Link to="/register" className={pathname === "/register" ? "active" : ""}>Register</Link>
+            <Link to="/login" className={pathname === "/login" ? "active" : ""}>Login</Link>
+          </>
+        )}
+        {token && (
+          <button onClick={handleLogout} style={{ cursor: "pointer", marginTop : 0 }}>Logout</button>
+        )}
       </nav>
     </header>
   );

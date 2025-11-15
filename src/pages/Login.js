@@ -15,16 +15,21 @@ export default function Login() {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(`${API}/auth/login`, form);
+  e.preventDefault();
+  try {
+    const res = await axios.post(`${API}/auth/login`, form);
+    if (res.data.token) {
       localStorage.setItem("token", res.data.token);
       setMsg("Login successful!");
       navigate("/");
-    } catch (err) {
-      setMsg(err.response?.data?.message || "Error");
+    } else {
+      setMsg(res.data.message || "Login failed");
     }
-  };
+  } catch (err) {
+    setMsg(err.response?.data?.message || "Error");
+  }
+};
+
 
   return (
     <div>
