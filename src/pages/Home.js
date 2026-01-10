@@ -2,6 +2,7 @@ import "./Home.css";
 import home from "../assets/home.png";
 import { FaBullseye, FaEye } from "react-icons/fa";
 import { FaRupeeSign, FaHome, FaUserTie, FaUsers, FaCar, FaShieldAlt, FaHandshake, FaBusinessTime, FaGlobe } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -57,63 +58,39 @@ export default function Home() {
 
 
       {/* ---------- BUSINESSES SECTION ---------- */}
-      <section className="services fade-up">
-        <h2>Our Businesses</h2>
 
-        <div className="service-list">
+<section className="services fade-up">
+  <h2>Our Businesses</h2>
 
-          <div className="service-card">
-            <FaRupeeSign size={40} />
-            <h3>Fixed Deposit</h3>
-            <p>Safe investment with guaranteed returns. Best interest rates in the market.</p>
-          </div>
+  <div className="service-list">
 
-          <div className="service-card">
-            <FaBusinessTime size={40} />
-            <h3>Business Loan</h3>
-            <p>Flexible loans with competitive rates tailored for your business growth.</p>
-          </div>
+    <Link to="/business-loans" className="service-card">
+      <FaRupeeSign size={40} />
+      <h3>Loans</h3>
+      <p>Personal • Business • Mortgage Loans</p>
+    </Link>
 
-          <div className="service-card">
-            <FaRupeeSign size={40} />
-            <h3>Line of Credit</h3>
-            <p>Access funds anytime to manage your daily operations efficiently.</p>
-          </div>
+    <Link to="/enterprises" className="service-card">
+      <FaHandshake size={40} />
+      <h3>Enterprises</h3>
+      <p>Wholesale Rice, Dal, Oil & Cashews</p>
+    </Link>
 
-          <div className="service-card">
-            <FaHome size={40} />
-            <h3>Home Loan</h3>
-            <p>Own your dream home with our easy and fast processing home loan.</p>
-          </div>
+    <Link to="/travel-zone" className="service-card">
+      <FaGlobe size={40} />
+      <h3>Travel Zone</h3>
+      <p>Domestic & International Group Tours</p>
+    </Link>
 
-          <div className="service-card">
-            <FaUserTie size={40} />
-            <h3>Personal Loan</h3>
-            <p>Make your dreams come true with our personal loan solutions.</p>
-          </div>
+    <Link to="/insurance-plan" className="service-card">
+      <FaShieldAlt size={40} />
+      <h3>Insurance</h3>
+      <p>Life protection with assured returns</p>
+    </Link>
 
-          <div className="service-card">
-            <FaShieldAlt size={40} />
-            <h3>Insurance</h3>
-            <p>
-              Protect your tangible and intangible assets from financial loss with our attractive policies.
-            </p>
-          </div>
+  </div>
+</section>
 
-          <div className="service-card">
-            <FaHandshake size={40} />
-            <h3>Enterprises</h3>
-            <p>Experts in wholesale grocery trading — rice, dals, oil, cashew and nuts.</p>
-          </div>
-
-          <div className="service-card">
-            <FaGlobe size={40} />
-            <h3>Travel Zone</h3>
-            <p>20+ years experience in domestic and international group tours.</p>
-          </div>
-
-        </div>
-      </section>
 
 
       {/* ---------- WE SERVE ---------- */}
@@ -127,53 +104,53 @@ export default function Home() {
         </ul>
       </section>
       
-      
 {/* ---------- CONTACT SECTION ---------- */}
-<section className="contact-section">
-  
-  {/* LEFT — CONTACT FORM */}
-  <div className="contact-box contact-left">
+<section className="contact-clean">
+
+  {/* LEFT — INFO + FORM */}
+  <div className="contact-left">
+
     <h2>Contact Us</h2>
+    <p className="contact-desc">
+      Reach out to RPD Capital Finance for trusted financial guidance and
+      professional support.
+    </p>
 
-    <form className="contact-form">
+    <form className="contact-form-clean">
       <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
+      <input type="email" placeholder="Email Address" required />
       <input type="text" placeholder="Phone Number" required />
-      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <textarea rows="4" placeholder="Your Message" required></textarea>
 
-      <button type="submit" className="contact-btn">Send Message</button>
+      <button type="submit">Send Message</button>
     </form>
-  </div>
 
-  {/* RIGHT — ADDRESS + MAP */}
-  <div className="contact-box contact-right">
-
-    <h2>Our Office</h2>
-
-    <p><strong>RPD Capital Finance</strong></p>
-    <p>Plot No.328LA, S Kolathur Main Road,<br />
-       Viduthalai Nagar, Kovilambakkam,<br />
-       Chennai-600129</p>
-
-    <p><strong>Email:</strong> rpdcapitalfinancechennai@gmail.com</p>
-    <p><strong>Phone:</strong> +91 96633 16054</p>
-
-    <div className="map-box">
-      <iframe
-        title="office-map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.3989358161743!2d80.19775297484088!3d12.946305087366687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d9a2d96cf69%3A0x7f148c8f38a45e2!2sRPD%20Capital%20Finance!5e0!3m2!1sen!2sin!4v1763125487558!5m2!1sen!2sin"
-        width="100%"
-        height="250"
-        style={{ border: 0 }}
-        allowFullScreen=""
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
+    <div className="contact-info-clean">
+      <p><strong>RPD Capital Finance</strong></p>
+      <p>
+        Plot No.328LA, S Kolathur Main Road,<br />
+        Viduthalai Nagar, Kovilambakkam,<br />
+        Chennai – 600129
+      </p>
+      <p><strong>Email:</strong> rpdcapitalfinancechennai@gmail.com</p>
+      <p><strong>Phone:</strong> +91 96633 16054</p>
     </div>
 
   </div>
 
+  {/* RIGHT — MAP */}
+  <div className="contact-map">
+    <iframe
+      title="RPD Capital Finance Location"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.3989358161743!2d80.19775297484088!3d12.946305087366687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d9a2d96cf69%3A0x7f148c8f38a45e2!2sRPD%20Capital%20Finance!5e0!3m2!1sen!2sin!4v1763125487558!5m2!1sen!2sin"
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      allowFullScreen
+    ></iframe>
+  </div>
+
 </section>
+
 
 
 

@@ -10,6 +10,11 @@ import Chit from './pages/Chit';
 import Report from './pages/Report';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import LoansBusiness from './pages/LoansBusiness';
+import Enterprises from './pages/Enterprises';
+import TravelZone from './pages/TravelZone';
+import Insurance from './pages/Insurance';
+
 
 function AppLayout() {
   const location = useLocation();
@@ -32,6 +37,12 @@ function AppLayout() {
           <Route path="/loan" element={<ProtectedRoute><Loan /></ProtectedRoute>} />
           <Route path="/chit" element={<ProtectedRoute><Chit /></ProtectedRoute>} />
           <Route path="/report" element={<ProtectedRoute><Report /></ProtectedRoute>} />
+          <Route path="/business-loans" element={<LoansBusiness />} />
+          <Route path="/enterprises" element={<Enterprises />} />
+          <Route path="/travel-zone" element={<TravelZone />} />
+          <Route path="/insurance-plan" element={<Insurance />} />
+
+          
         </Routes>
       ) : (
         <div style={{ padding: 20, maxWidth: 1000, margin: "0 auto" }}>
@@ -44,6 +55,11 @@ function AppLayout() {
             <Route path="/loan" element={<ProtectedRoute><Loan /></ProtectedRoute>} />
             <Route path="/chit" element={<ProtectedRoute><Chit /></ProtectedRoute>} />
             <Route path="/report" element={<ProtectedRoute><Report /></ProtectedRoute>} />
+            <Route path="/business-loans" element={<LoansBusiness />} />
+            <Route path="/enterprises" element={<Enterprises />} />
+            <Route path="/travel-zone" element={<TravelZone />} />
+            <Route path="/insurance-plan" element={<Insurance />} />
+
           </Routes>
         </div>
       )}

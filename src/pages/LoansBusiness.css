@@ -1,0 +1,62 @@
+.loans-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.loans-header {
+  margin-bottom: 45px;
+}
+
+.loans-header h1 {
+  font-size: 30px;
+  color: #002b1a;
+  margin-bottom: 8px;
+}
+
+.loans-header p {
+  font-size: 14px;
+  color: #555;
+  max-width: 700px;
+}
+
+/* Sections */
+.loan-section {
+  border-top: 1px solid #ddd;
+  padding: 32px 0;
+}
+
+.loan-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.loan-title svg {
+  color: #006400;
+  font-size: 18px;
+}
+
+.loan-title h2 {
+  font-size: 21px;
+  color: #002b1a;
+}
+
+.loan-section p {
+  font-size: 14px;
+  color: #444;
+  max-width: 720px;
+  margin-bottom: 10px;
+}
+
+.loan-section ul {
+  padding-left: 18px;
+}
+
+.loan-section li {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 6px;
+}
