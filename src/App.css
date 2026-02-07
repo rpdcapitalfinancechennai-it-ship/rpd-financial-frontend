@@ -1,4 +1,10 @@
 /* App.css */
+.app-page {
+  padding: 20px;
+  margin: 0 auto;
+  /* max-width: 1200px; */
+}
+
 body.home-page header {
   position: relative;
 }
@@ -17,39 +23,119 @@ h2 {
 }
 
 /* --- Header --- */
+/* =========================
+   GLOBAL HEADER / NAVBAR
+========================= */
+
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 40px;
-  background: #002b1a;
-  color: white;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
+  min-height: 60px;
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #002b1a;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+header .logo {
+  font-size: 20px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 header nav {
   display: flex;
   gap: 25px;
+  align-items: center;
 }
 
 header nav a {
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  padding-bottom: 4px;
-  color: white;
-  transition: all 0.3s ease;
+  padding: 8px 12px;
+  color: #fff;
+  transition: 0.3s ease;
+  white-space: nowrap;
 }
-
 
 header nav a.active {
   color: #ffa807;
-  font-weight: 600;
   border-bottom: 2px solid #ffa807;
 }
+
+/* Hamburger button */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS
+========================= */
+
+/* Mobile */
+@media (max-width: 768px) {
+  header {
+    padding: 12px 18px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-toggle {
+    display: block;
+    align-self: flex-end;
+  }
+
+  header nav {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  header nav a {
+    text-align: center;
+    padding: 10px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+  }
+
+  header nav.closed {
+    display: none;
+  }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  header {
+    padding: 14px 30px;
+  }
+  header nav {
+    gap: 20px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  header {
+    padding: 16px 60px;
+  }
+  header nav a {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+}
+
 
 /* --- Forms & Containers --- */
 .container {
@@ -57,9 +143,15 @@ header nav a.active {
   margin: 30px auto;
   padding: 25px;
   border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  background: #fff !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
 }
+
+.extra-form-container {
+    padding: 40px !important; 
+}
+
+
 
 form {
   display: grid;
@@ -670,5 +762,193 @@ p {
 
   .contact-map iframe {
     min-height: 300px;
+  }
+}
+
+/* App.css - Enhanced with full responsive screen support */
+/* ... (your existing CSS remains unchanged until the media queries section) ... */
+
+/* =====================================================
+   FULL RESPONSIVE SCREEN SUPPORT
+   Mobile-first approach with tablet, laptop, desktop, large screens
+===================================================== */
+
+/* Mobile-first base styles already in place */
+
+/* Small tablets and large phones (portrait to landscape) */
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  .container {
+    margin: 20px auto;
+    padding: 20px 15px;
+  }
+  
+  form {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .biz-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+  }
+}
+
+/* Tablets (portrait and landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  
+  .container {
+    max-width: 95%;
+    padding: 25px;
+  }
+  
+  .biz-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  /* Loan sections */
+  .loan-row,
+  .loan-row.reverse {
+    gap: 40px;
+    padding: 60px 20px;
+  }
+  
+  .loan-icon {
+    width: 90px;
+    height: 90px;
+    font-size: 36px;
+  }
+  
+  .contact-modern {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 30px;
+  }
+}
+
+/* Laptops and small desktops */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .container {
+    max-width: 950px;
+  }
+  
+  .loans-hero h1 {
+    font-size: 38px;
+  }
+  
+  /* .loan-row {
+    max-width: 1000px;
+  } */
+}
+
+/* Large desktops and wide screens */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .container {
+    max-width: 1000px;
+  }
+  
+  .loans-hero h1 {
+    font-size: 46px;
+  }
+  
+  .loan-row {
+    max-width: 1150px;
+    gap: 80px;
+  }
+  
+  .contact-modern {
+    max-width: 1200px;
+  }
+}
+
+/* Extra large screens (4K+, widescreens) */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1200px;
+    padding: 40px;
+  }
+  
+  .loans-hero {
+    padding: 60px 40px;
+  }
+  
+  .loans-hero h1 {
+    font-size: 52px;
+  }
+  
+  .loan-row {
+    max-width: 1300px;
+    gap: 100px;
+  }
+  
+  .contact-modern {
+    max-width: 1300px;
+    padding: 80px;
+  }
+  
+  .biz-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+/* Legacy mobile styles (update your existing ones for consistency) */
+@media (max-width: 480px) {
+  .container {
+    margin: 15px auto;
+    padding: 15px 10px;
+  }
+  
+  button[type="submit"],
+  button[type="button"] {
+    width: 100%;
+  }
+  
+  .biz-title {
+    font-size: 20px;
+  }
+  
+  .loan-hero h1 {
+    font-size: 22px;
+  }
+  
+  .contact-form-box {
+    padding: 25px;
+  }
+}
+
+/* Touch devices and hover improvements */
+@media (hover: hover) {
+  .biz-card:hover,
+  button:hover,
+  .loan-btn:hover {
+    /* Existing hover effects enhanced */
+  }
+}
+
+/* High DPI/Retina screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .biz-card {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .loan-block img {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  }
+}
+
+/* Print styles */
+@media print {
+  header, button, .pagination {
+    display: none;
+  }
+  
+  body {
+    background: white;
+  }
+  
+  .container {
+    box-shadow: none;
+    border: 1px solid #ccc;
   }
 }

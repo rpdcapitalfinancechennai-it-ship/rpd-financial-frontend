@@ -1,82 +1,200 @@
+import React from 'react';
+import './LoansBusiness.css';
 import Breadcrumb from "../components/Breadcrumb";
-import { FaUser, FaBriefcase, FaHome } from "react-icons/fa";
-import "./LoansBusiness.css";
 
-export default function LoansPage() {
+const availableLoans = [
+  {
+    id: 'personal',
+    title: 'Personal Loan',
+    image: '/images/loans/personal-loan.png',
+    description: 'For personal financial needs such as education, marriage, and emergencies.',
+    icon: '💳',
+    
+    color: '#10b981'
+  },
+  {
+    id: 'business',
+    title: 'Business Loan',
+    image: '/images/loans/business-loan.png',
+    description: 'Supports business expansion, working capital, and operational growth.',
+    icon: '💼',
+    
+    color: '#3b82f6'
+  },
+  {
+    id: 'mortgage',
+    title: 'Mortgage Loan',
+    image: '/images/loans/mortgage-loan.png',
+    description: 'Loan against property with higher value and longer repayment tenure.',
+    icon: '🏠',
+    
+    color: '#f59e0b'
+  }
+];
+
+const requiredDocuments = [
+  {
+    title: 'Identity Proof',
+    icon: '🪪',
+    items: ['Aadhaar Card', 'PAN Card', 'Voter ID / Passport'],
+    color: '#3b82f6'
+  },
+  {
+    title: 'Address Proof',
+    icon: '📍',
+    items: ['Aadhaar Card', 'Utility Bill', 'Rental Agreement'],
+    color: '#10b981'
+  },
+  {
+    title: 'Income Proof',
+    icon: '💰',
+    items: ['Salary Slip / Business Proof', 'Bank Statement (6 Months)', 'IT Returns'],
+    color: '#f59e0b'
+  },
+  {
+    title: 'Property Documents',
+    icon: '🏠',
+    items: ['Property Papers', 'EC Copy', 'Approved Plan'],
+    color: '#8b5cf6'
+  }
+];
+
+
+const loanTypes = [
+  {
+    title: 'Monthly Interest Loan',
+    icon: '📅',
+    description: 'Pay interest every month. Principal payable at the end of tenure.',
+    rate: '3%',
+    color: '#ef4444'
+  },
+  {
+    title: 'Monthly EMI Loan',
+    icon: '📊',
+    description: 'Structured EMI repayment with reduced interest burden.',
+    rate: '1.5%',
+    highlight: true,
+    color: '#10b981'
+  },
+  {
+    title: 'Daily Loan',
+    icon: '💼',
+    description: 'Convenient daily repayment option for traders & small businesses.',
+    rate: '3%',
+    color: '#8b5cf6'
+  }
+];
+
+const LoansPage = () => {
   return (
-    <div className="loans-wrapper">
-
+    <div className="loan-page-wrapper">
       <Breadcrumb />
-
-      {/* PAGE HEADER */}
-      <div className="loans-header">
-        <h1>Loans</h1>
-        <p>
-          We provide structured and transparent loan solutions to meet personal
-          and business financial requirements.
+      {/* HERO */}
+      <section className="modern-hero">
+        <div className="hero-bg"></div>
+        <h1 className="hero-title">
+          Loans <span>Details</span>
+        </h1>
+        <p className="hero-subtitle">
+          Simple loan structures with transparent interest rates and flexible repayment options.
         </p>
+        <div className="amount-range-card">
+  <div className="amount-header">
+    <span className="amount-label">Loan Amount Range</span>
+    <span className="amount-badge">Flexible</span>
+  </div>
+
+  <div className="amount-values">
+    <div className="amount-item">
+      <span className="amount-title">Minimum</span>
+      <h3>₹ 5 Lakhs</h3>
+    </div>
+
+    <div className="amount-divider"></div>
+
+    <div className="amount-item">
+      <span className="amount-title">Maximum</span>
+      <h3>₹ 15 Lakhs</h3>
+    </div>
+  </div>
+
+  <p className="amount-note">
+    Loan amount depends on eligibility, income & document verification.
+  </p>
+</div>
+
+      </section>
+
+      <section className="content-section">
+        <div className="loan-container">
+          {/* LOAN TYPES */}
+          <div className="info-card">
+            <h2>Loan Types</h2>
+            <div className="premium-loan-types">
+              {loanTypes.map((loan, index) => (
+                <div key={index} className={`loan-type-card ${loan.highlight ? 'highlight' : ''}`} style={{'--card-color': loan.color}}>
+                  <div className="loan-type-header">
+                    <span className="loan-icon" style={{background: `linear-gradient(135deg, ${loan.color}, ${loan.color}cc)`}}>{loan.icon}</span>
+                    <h3>{loan.title}</h3>
+                  </div>
+                  <p>{loan.description}</p>
+                  <div className="rate-badge">{loan.rate} Interest</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* AVAILABLE LOANS - NOW MODERN */}
+          <div className="info-card">
+            <h2>Available Loans</h2>
+            <div className="premium-loan-grid">
+              {availableLoans.map((loan, index) => (
+                <div key={loan.id} className="modern-loan-card" style={{'--card-color': loan.color}}>
+                  <div className="loan-image-container">
+                    <img src={loan.image} alt={loan.title} />
+                  </div>
+                  <div className="loan-content">
+                    <span className="loan-icon">{loan.icon}</span>
+                    <h3>{loan.title}</h3>
+                    <p>{loan.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* REQUIRED DOCUMENTS */}
+<div className="info-card">
+  <h2>Required Documents</h2>
+
+  <div className="documents-grid">
+    {requiredDocuments.map((doc, index) => (
+      <div
+        key={index}
+        className="document-card"
+        style={{ '--card-color': doc.color }}
+      >
+        <div className="document-header">
+          <span className="document-icon">{doc.icon}</span>
+          <h3>{doc.title}</h3>
+        </div>
+
+        <ul className="document-list">
+          {doc.items.map((item, i) => (
+            <li key={i}>
+              <span className="check">✔</span>
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
-
-      {/* PERSONAL LOAN */}
-      <section className="loan-section">
-        <div className="loan-title">
-          <FaUser />
-          <h2>Personal Loan</h2>
-        </div>
-
-        <p>
-          Personal loans are designed to meet individual financial needs such as
-          education, medical expenses, family requirements, or planned investments.
-          The process is simple, with clear terms and quick processing.
-        </p>
-
-        <ul>
-          <li>Simple eligibility criteria</li>
-          <li>Minimal documentation</li>
-          <li>Quick processing and disbursement</li>
-        </ul>
-      </section>
-
-      {/* BUSINESS LOAN */}
-      <section className="loan-section">
-        <div className="loan-title">
-          <FaBriefcase />
-          <h2>Business Loan</h2>
-        </div>
-
-        <p>
-          Business loans support working capital needs, expansion plans, and
-          operational requirements. These loans are structured to help maintain
-          cash flow and long-term business stability.
-        </p>
-
-        <ul>
-          <li>Flexible repayment structures</li>
-          <li>Competitive interest rates</li>
-          <li>Support for businesses at all stages</li>
-        </ul>
-      </section>
-
-      {/* MORTGAGE LOAN */}
-      <section className="loan-section">
-        <div className="loan-title">
-          <FaHome />
-          <h2>Mortgage Loan</h2>
-        </div>
-
-        <p>
-          Mortgage loans allow you to access funds by pledging residential or
-          commercial property as security. This option provides higher loan
-          eligibility with longer repayment tenures.
-        </p>
-
-        <ul>
-          <li>Higher loan amounts</li>
-          <li>Longer repayment tenure</li>
-          <li>Property-backed security</li>
-        </ul>
-      </section>
+    ))}
+  </div>
+</div>
 
     </div>
   );
-}
+};
+
+export default LoansPage;

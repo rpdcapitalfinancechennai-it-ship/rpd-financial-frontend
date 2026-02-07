@@ -67,7 +67,7 @@ export default function Chit() {
   const dateFields = ["chitDate"];
 
   return (
-    <div className="container">
+    <div className="container extra-form-container">
       <h2>Chit</h2>
       <form onSubmit={submit}>
         {Object.entries(fields).map(([key,label]) => (

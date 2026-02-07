@@ -39,7 +39,7 @@ export default function Report() {
   };
 
   return (
-    <div className="container">
+    <div className="container extra-form-container">
       <h2>Report</h2>
 
 <div

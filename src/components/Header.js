@@ -24,7 +24,8 @@ export default function Header() {
           }}
         />
       </div>
-      <nav style={{ display: "flex", gap: 15, alignItems: "center" }}>
+      
+      <nav class="hidden" style={{ display: "flex", gap: 15, alignItems: "center" }}>
         {[
           { path: "/", label: "Home" },
           { path: "/service", label: "Service" },

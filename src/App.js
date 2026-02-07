@@ -45,7 +45,7 @@ function AppLayout() {
           
         </Routes>
       ) : (
-        <div style={{ padding: 20, maxWidth: 1000, margin: "0 auto" }}>
+        <div className="app-page">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />

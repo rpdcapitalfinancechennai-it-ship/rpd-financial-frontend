@@ -67,7 +67,7 @@ export default function Loan() {
   const dateFields = ["loanOpenDate","loanClosingDate"];
 
   return (
-    <div className="container">
+    <div className="container extra-form-container">
       <h2>Loan</h2>
       <form onSubmit={submit}>
         {Object.entries(fields).map(([key,label]) => (

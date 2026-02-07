@@ -1,0 +1,131 @@
+.travel-zone-modern {
+  font-family: system-ui, sans-serif;
+  background: #f9fafc;
+  color: #111;
+}
+
+/* Hero */
+.travel-hero {
+  padding: 5rem 2rem 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.travel-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.travel-hero p {
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+/* Sections */
+.dest-section {
+  padding: 4rem 2rem;
+  max-width: 1900px;
+  margin: auto;
+}
+
+.dest-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Grid */
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.dest-card {
+  height: 220px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  color: white;
+  font-weight: 600;
+  background-color: #000;
+  transition: transform 0.3s ease;
+}
+
+.dest-card:hover {
+  transform: translateY(-6px);
+}
+
+.dest-card span {
+  background: rgba(0,0,0,0.55);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+}
+
+/* Journey Types */
+.journey-types {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Journey Types – Modern Image Style */
+.journey-types-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 4rem 2rem 5rem;
+}
+
+.journey-box {
+  height: 260px;
+  border-radius: 22px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.journey-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+.journey-box span {
+  position: relative;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 1.2rem 1.4rem;
+  z-index: 1;
+}
+
+.journey-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .journey-box {
+    height: 220px;
+  }
+}

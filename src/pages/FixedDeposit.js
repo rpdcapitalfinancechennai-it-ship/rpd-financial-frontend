@@ -8,7 +8,7 @@ export default function FixedDeposit() {
     receivedWithThanksFrom:'', jointly:'', under:'',
     receivedDate:'', receivedAmount:'', period:'', roiPerAnnum:'',
     interestPayable:'', paymentDueDate:'', paymentDueAmount:'', payableTo:'',
-    nomineeName:'', nomineeAddress:'', guardianName:'', guardianAddress:'', transactionId: "", accountDetails: "", monthlyInterest : ""
+    nomineeName:'', nomineeAddress:'', transactionId: "", accountDetails: "", monthlyInterest : "", monthlyInterestDate : ""
   });
   const [errors, setErrors] = useState({});
   const [created, setCreated] = useState(null);
@@ -23,7 +23,7 @@ export default function FixedDeposit() {
     const required = [
       "customerId", "name", "date", "accountNo", "receivedWithThanksFrom", 
       "receivedDate", "receivedAmount", "period", "roiPerAnnum", 
-      "interestPayable", "paymentDueDate", "paymentDueAmount", "payableTo", "monthlyInterest"
+      "interestPayable", "paymentDueDate", "paymentDueAmount", "payableTo", "monthlyInterest", "monthlyInterestDate"
     ];
     required.forEach(field => {
       if (!form[field]) newErrors[field] = "This field is required";
@@ -79,26 +79,26 @@ export default function FixedDeposit() {
 
   const fields = {
     customerId:'Customer ID', name:'Name', date:'Date',
-    accountNo:'Account No', receivedWithThanksFrom:'Received with thanks from',
+    accountNo:'FD Account No', receivedWithThanksFrom:'Received with thanks from',
     jointly:'Jointly', under:'Under', receivedDate:'Received Date',
     receivedAmount:'Received Amount', period:'Period (Months/Year)',
     roiPerAnnum:'ROI Per Annum', paymentDueDate:'Payment Due Date',
     paymentDueAmount:'Payment Due Amount', payableTo:'Payable to',
     nomineeName:'Nominee name', nomineeAddress:'Nominee address',
-    guardianName:'Guardian name', guardianAddress:'Guardian address', transactionId: "Transaction Id", accountDetails: "Account Details", monthlyInterest : "Monthly Interest Payable"
+    transactionId: "Transaction Id", accountDetails: "Account Details", monthlyInterest : "Monthly Interest Payable", monthlyInterestDate:'Intrest Payment Date',
   };
 
-  const dateFields = ["date", "receivedDate", "paymentDueDate"];
+  const dateFields = ["date", "receivedDate", "paymentDueDate", "monthlyInterestDate"];
 
   // Required fields list
   const requiredFields = [
     "customerId", "name", "date", "accountNo", "receivedWithThanksFrom", 
     "receivedDate", "receivedAmount", "period", "roiPerAnnum", 
-    "interestPayable", "paymentDueDate", "paymentDueAmount", "payableTo", "monthlyInterest"
+    "interestPayable", "paymentDueDate", "paymentDueAmount", "payableTo", "monthlyInterest", "monthlyInterestDate"
   ];
 
   return (
-    <div className="container">
+    <div className="container extra-form-container">
       <h2>Fixed Deposit</h2>
       <form onSubmit={submit}>
         {Object.entries(fields).map(([key,label])=> (
