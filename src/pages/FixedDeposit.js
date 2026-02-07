@@ -23,7 +23,7 @@ export default function FixedDeposit() {
     const required = [
       "customerId", "name", "date", "accountNo", "receivedWithThanksFrom", 
       "receivedDate", "receivedAmount", "period", "roiPerAnnum", 
-      "interestPayable", "paymentDueDate", "paymentDueAmount", "payableTo", "monthlyInterest", "monthlyInterestDate"
+      "interestPayable", "paymentDueDate", "paymentDueAmount", "payableTo",
     ];
     required.forEach(field => {
       if (!form[field]) newErrors[field] = "This field is required";
@@ -85,7 +85,7 @@ export default function FixedDeposit() {
     roiPerAnnum:'ROI Per Annum', paymentDueDate:'Payment Due Date',
     paymentDueAmount:'Payment Due Amount', payableTo:'Payable to',
     nomineeName:'Nominee name', nomineeAddress:'Nominee address',
-    transactionId: "Transaction Id", accountDetails: "Account Details", monthlyInterest : "Monthly Interest Payable", monthlyInterestDate:'Intrest Payment Date',
+    transactionId: "Transaction Id", accountDetails: "Account Details",
   };
 
   const dateFields = ["date", "receivedDate", "paymentDueDate", "monthlyInterestDate"];
@@ -94,7 +94,7 @@ export default function FixedDeposit() {
   const requiredFields = [
     "customerId", "name", "date", "accountNo", "receivedWithThanksFrom", 
     "receivedDate", "receivedAmount", "period", "roiPerAnnum", 
-    "interestPayable", "paymentDueDate", "paymentDueAmount", "payableTo", "monthlyInterest", "monthlyInterestDate"
+    "interestPayable", "paymentDueDate", "paymentDueAmount", "payableTo",
   ];
 
   return (
@@ -117,6 +117,8 @@ export default function FixedDeposit() {
           </label>
         ))}
 
+        
+
         <label>
           <span>
             Interest Payable{" "}
@@ -129,6 +131,34 @@ export default function FixedDeposit() {
           </select>
           {errors.interestPayable && <span className="error">{errors.interestPayable}</span>}
         </label>
+
+        {form.interestPayable === "Monthly" && (
+            <>
+                    <label>
+                  <span>Monthly Interest Payable</span>
+                  <input
+                    type="text"
+                    name="monthlyInterest"
+                    value={form.monthlyInterest}
+                    onChange={change}
+                  />
+                  {errors.monthlyInterest && <span className="error">{errors.monthlyInterest}</span>}
+                </label>
+
+                <label>
+                  <span>Interest Payment Date</span>
+                  <input
+                    type="date"
+                    name="monthlyInterestDate"
+                    value={form.monthlyInterestDate}
+                    onChange={change}
+                  />
+                  {errors.monthlyInterestDate && (
+                    <span className="error">{errors.monthlyInterestDate}</span>
+                  )}
+                </label>
+            </>
+          )}
 
         <div>
           <button type='submit'>Create FD</button>
