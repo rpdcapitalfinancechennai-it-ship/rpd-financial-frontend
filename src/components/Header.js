@@ -28,7 +28,6 @@ export default function Header() {
       <nav class="hidden" style={{ display: "flex", gap: 15, alignItems: "center" }}>
         {[
           { path: "/", label: "Home" },
-          { path: "/service", label: "Service" },
           { path: "/fixed-deposit", label: "Fixed Deposit" },
           { path: "/loan", label: "Loan" },
           { path: "/chit", label: "Chit" },

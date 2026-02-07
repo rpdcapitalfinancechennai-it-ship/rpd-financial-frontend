@@ -32,7 +32,6 @@ function AppLayout() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/service" element={<Service />} />
           <Route path="/fixed-deposit" element={<ProtectedRoute><FixedDeposit /></ProtectedRoute>} />
           <Route path="/loan" element={<ProtectedRoute><Loan /></ProtectedRoute>} />
           <Route path="/chit" element={<ProtectedRoute><Chit /></ProtectedRoute>} />
@@ -50,7 +49,6 @@ function AppLayout() {
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/service" element={<Service />} />
             <Route path="/fixed-deposit" element={<ProtectedRoute><FixedDeposit /></ProtectedRoute>} />
             <Route path="/loan" element={<ProtectedRoute><Loan /></ProtectedRoute>} />
             <Route path="/chit" element={<ProtectedRoute><Chit /></ProtectedRoute>} />
