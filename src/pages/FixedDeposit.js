@@ -88,7 +88,7 @@ export default function FixedDeposit() {
     transactionId: "Transaction Id", accountDetails: "Account Details",
   };
 
-  const dateFields = ["date", "receivedDate", "paymentDueDate", "monthlyInterestDate"];
+  const dateFields = ["date", "receivedDate", "paymentDueDate"];
 
   // Required fields list
   const requiredFields = [
@@ -148,7 +148,7 @@ export default function FixedDeposit() {
                 <label>
                   <span>Interest Payment Date</span>
                   <input
-                    type="date"
+                    type="text"
                     name="monthlyInterestDate"
                     value={form.monthlyInterestDate}
                     onChange={change}
