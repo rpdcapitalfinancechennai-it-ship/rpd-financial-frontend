@@ -27,8 +27,12 @@ export default function TravelZone() {
       {/* Compact Hero */}
       <section className="travel-hero">
         <h1>Travel Zone</h1>
-        <p>Domestic & International Group Tours</p>
+        <p>
+          Your trusted partner for remarkable journeys. With two decades of experience,
+          we craft premium Domestic and International Group Tours tailored for every traveler.
+        </p>
       </section>
+
 
       {/* Destinations */}
       <section className="dest-section">
@@ -44,6 +48,16 @@ export default function TravelZone() {
 
       <section className="dest-section">
         <h2>International Destinations</h2>
+        <div className="international-highlight">
+  <span className="globe">🌐</span>
+  <p>
+    Handpicked international destinations including
+    <strong> Dubai</strong>, <strong> Thailand</strong>, <strong> Singapore</strong>,
+    <strong> Malaysia</strong> and <strong> Indonesia</strong> —
+    designed for memorable group travel experiences.
+  </p>
+</div>
+
         <div className="destinations-grid">
           {internationalDestinations.map((d, i) => (
             <div className="dest-card" key={i} style={{ backgroundImage: `url(${d.image})` }}>

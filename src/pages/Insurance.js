@@ -20,7 +20,7 @@ export default function Insurance() {
 
             <p className="hero-partners">
               Partnering with leading providers like{" "}
-              <span>TATA AIA Insurance</span>,{" "}
+              <span>TATA AIG Insurance</span>,{" "}
               <span>SBI Insurance</span>,{" "}
               <span>Future Generali</span>, and{" "}
               <span>Aditya Birla</span>.

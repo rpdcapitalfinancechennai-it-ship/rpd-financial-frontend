@@ -29,6 +29,41 @@
   margin: auto;
 }
 
+.dest-subtitle {
+  margin-bottom: 1.8rem;
+  font-size: 1.05rem;
+  color: #555;
+  max-width: 850px;
+}
+
+.international-highlight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #f0f4ff, #ffffff);
+  padding: 1.2rem 1.6rem;
+  border-left: 5px solid #667eea;
+  border-radius: 14px;
+  margin-bottom: 2.2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.international-highlight p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.international-highlight strong {
+  color: #764ba2;
+}
+
+.globe {
+  font-size: 1.8rem;
+}
+
+
 .dest-section h2 {
   font-size: 2rem;
   margin-bottom: 2rem;

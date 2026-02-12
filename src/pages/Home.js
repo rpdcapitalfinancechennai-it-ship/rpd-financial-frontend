@@ -89,10 +89,6 @@ const Home = () => {
               <div className="stat-label">Loans Processed</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">1</div>
-              <div className="stat-label">Year Experience</div>
-            </div>
-            <div className="stat-item">
               <div className="stat-number">99.9%</div>
               <div className="stat-label">Claims Settled</div>
             </div>

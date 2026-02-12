@@ -98,29 +98,37 @@ const LoansPage = () => {
         <p className="hero-subtitle">
           Simple loan structures with transparent interest rates and flexible repayment options.
         </p>
+        <div className="hero-actions">
+  <a href="/contact" className="hero-contact-btn">
+    Know Your Eligibility
+    <span className="arrow">→</span>
+  </a>
+</div>
+
         <div className="amount-range-card">
-  <div className="amount-header">
-    <span className="amount-label">Loan Amount Range</span>
-    <span className="amount-badge">Flexible</span>
-  </div>
+      <div className="amount-header">
+        <span className="amount-label">Loan Amount Range</span>
+        <span className="amount-badge">Flexible</span>
+      </div>
 
-  <div className="amount-values">
-    <div className="amount-item">
-      <span className="amount-title">Minimum</span>
-      <h3>₹ 5 Lakhs</h3>
-    </div>
+      <div className="amount-values">
+        <div className="amount-item">
+          <span className="amount-title">Minimum</span>
+          <h3>₹ 20,000</h3>
+        </div>
 
-    <div className="amount-divider"></div>
+        <div className="amount-divider"></div>
 
-    <div className="amount-item">
-      <span className="amount-title">Maximum</span>
-      <h3>₹ 15 Lakhs</h3>
-    </div>
-  </div>
+        <div className="amount-item">
+          <span className="amount-title">Maximum</span>
+          <h3>₹ 10 Lakhs</h3>
+        </div>
+      </div>
 
-  <p className="amount-note">
-    Loan amount depends on eligibility, income & document verification.
-  </p>
+        <p className="amount-note">
+          Loan amount depends on eligibility, income & document verification.
+        </p>
+        <div className="rate-badge">3% Interest</div>
 </div>
 
       </section>
@@ -138,7 +146,6 @@ const LoansPage = () => {
                     <h3>{loan.title}</h3>
                   </div>
                   <p>{loan.description}</p>
-                  <div className="rate-badge">{loan.rate} Interest</div>
                 </div>
               ))}
             </div>
