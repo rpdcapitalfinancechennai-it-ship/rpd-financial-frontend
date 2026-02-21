@@ -19,11 +19,7 @@ export default function Insurance() {
             </p>
 
             <p className="hero-partners">
-              Partnering with leading providers like{" "}
-              <span>TATA AIG Insurance</span>,{" "}
-              <span>SBI Insurance</span>,{" "}
-              <span>Future Generali</span>, and{" "}
-              <span>Aditya Birla</span>.
+              Partnering with leading providers and 50 + insurance partners
             </p>
           </div>
         </div>
@@ -52,7 +48,7 @@ export default function Insurance() {
           <div className="partners-section">
             <h3 className="partners-title">Trusted by Leading Insurers</h3>
             <div className="partners-logos">
-              <div className="partner-logo">TATA AIA</div>
+              <div className="partner-logo">TATA AIG</div>
               <div className="partner-logo">SBI Insurance</div>
               <div className="partner-logo">Future Generali</div>
               <div className="partner-logo">Aditya Birla</div>
@@ -60,7 +56,7 @@ export default function Insurance() {
           </div>
 
           <div className="value-grid">
-            <div className="value-card primary">
+            <div className="value-card primary">3% Interest
               <div className="value-icon" aria-hidden="true">🛡️</div>
               <h4>Complete Coverage</h4>
               <p>

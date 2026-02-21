@@ -67,50 +67,6 @@ export default function TravelZone() {
         </div>
       </section>
 
-      {/* Journey Types */}
-     {/* Journey Types */}
-<section className="journey-types-modern">
-  <div
-    className="journey-box"
-    style={{
-      backgroundImage:
-        "url(https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800)"
-    }}
-  >
-    <span>🌴 Leisure</span>
-  </div>
-
-  <div
-    className="journey-box"
-    style={{
-      backgroundImage:
-        "url(https://images.unsplash.com/photo-1548013146-72479768bada?w=800)"
-    }}
-  >
-    <span>⛩️ Pilgrimage</span>
-  </div>
-
-  <div
-    className="journey-box"
-    style={{
-      backgroundImage:
-        "url(https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800)"
-    }}
-  >
-    <span>🎓 Educational</span>
-  </div>
-
-  <div
-    className="journey-box"
-    style={{
-      backgroundImage:
-        "url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800)"
-    }}
-  >
-    <span>🏢 Corporate</span>
-  </div>
-</section>
-
     </div>
   );
 }

@@ -128,7 +128,7 @@ const LoansPage = () => {
         <p className="amount-note">
           Loan amount depends on eligibility, income & document verification.
         </p>
-        <div className="rate-badge">3% Interest</div>
+        {/* <div className="rate-badge">3% Interest</div> */}
 </div>
 
       </section>

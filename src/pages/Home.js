@@ -88,10 +88,6 @@ const Home = () => {
               <div className="stat-number">₹5L+</div>
               <div className="stat-label">Loans Processed</div>
             </div>
-            <div className="stat-item">
-              <div className="stat-number">99.9%</div>
-              <div className="stat-label">Claims Settled</div>
-            </div>
           </div>
           {/* <div className="hero-buttons">
             <Link to="/service" className="btn btn-primary">Explore Services</Link>

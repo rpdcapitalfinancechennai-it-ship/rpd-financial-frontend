@@ -8,7 +8,7 @@
 .insurance-hero-section {
   background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #7c3aed 100%);
   color: white;
-  padding: 4rem 1rem;
+  padding: 0.5rem;
   position: relative;
   overflow: hidden;
 }
