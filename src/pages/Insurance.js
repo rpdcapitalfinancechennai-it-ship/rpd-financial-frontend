@@ -56,7 +56,7 @@ export default function Insurance() {
           </div>
 
           <div className="value-grid">
-            <div className="value-card primary">3% Interest
+            <div className="value-card primary">
               <div className="value-icon" aria-hidden="true">🛡️</div>
               <h4>Complete Coverage</h4>
               <p>
