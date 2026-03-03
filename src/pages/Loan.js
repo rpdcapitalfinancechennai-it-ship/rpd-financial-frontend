@@ -60,7 +60,7 @@ export default function Loan() {
     customerId:"Customer ID", loanNo:"Loan Number", name:"Name",
     contact:"Contact Details", loanOpenDate:"Loan Open Date", loanClosingDate:"Loan Closing Date",
     loanAmount:"Loan Amount", modeOfTransfer:"Mode of Transfer", rateOfInterest:"Rate of Interest",
-    paymentMethod:"Payment Method", interestPerMonth:"Interest Amonut", transactionId: "Transaction Id",
+    paymentMethod:"Payment Method", interestPerMonth:"Interest Amount", transactionId: "Transaction Id",
     collateralReceived: "Collateral Received",
   };
 
