@@ -80,7 +80,8 @@
   height: 220px;
   border-radius: 18px;
   background-size: cover;
-  background-position: center;
+  background-position: top center;   /* 👈 change here */
+  background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
   padding: 1rem;

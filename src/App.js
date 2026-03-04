@@ -14,7 +14,7 @@ import LoansBusiness from './pages/LoansBusiness';
 import Enterprises from './pages/Enterprises';
 import TravelZone from './pages/TravelZone';
 import Insurance from './pages/Insurance';
-
+import ScrollToTop from "./components/ScrollToTop";
 
 function AppLayout() {
   const location = useLocation();
@@ -68,6 +68,7 @@ function AppLayout() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop /> 
       <AppLayout />
     </BrowserRouter>
   );

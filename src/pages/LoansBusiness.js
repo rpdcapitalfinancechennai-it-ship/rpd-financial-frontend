@@ -99,8 +99,8 @@ const LoansPage = () => {
           Simple loan structures with transparent interest rates and flexible repayment options.
         </p>
         <div className="hero-actions">
-  <a href="/contact" className="hero-contact-btn">
-    Know Your Eligibility
+  <a href="" className="hero-contact-btn">
+    Know Your Eligibility Contact Us
     <span className="arrow">→</span>
   </a>
 </div>
