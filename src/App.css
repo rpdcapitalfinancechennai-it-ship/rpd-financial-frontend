@@ -1,28 +1,92 @@
-/* App.css */
-.app-page {
-  padding: 20px;
-  margin: 0 auto;
-  /* max-width: 1200px; */
+/* =====================================================
+   APP.CSS — FULLY RESPONSIVE (320px → 4K+)
+   Mobile-first, fluid layout, all breakpoints covered
+===================================================== */
+
+/* --- CSS Variables --- */
+:root {
+  --color-primary: #002b1a;
+  --color-secondary: #006400;
+  --color-accent: #ffa807;
+  --color-blue: #004080;
+  --color-bg: #f5f6fa;
+  --color-white: #ffffff;
+  --color-text: #333333;
+  --color-muted: #444444;
+  --color-border: #cccccc;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 30px;
+
+  /* Fluid font sizes using clamp(min, preferred, max) */
+  --fs-xs: clamp(11px, 1.5vw, 13px);
+  --fs-sm: clamp(13px, 1.8vw, 14px);
+  --fs-base: clamp(14px, 2vw, 16px);
+  --fs-md: clamp(16px, 2.5vw, 18px);
+  --fs-lg: clamp(20px, 3vw, 26px);
+  --fs-xl: clamp(24px, 4vw, 34px);
+  --fs-2xl: clamp(28px, 5vw, 46px);
+  --fs-hero: clamp(30px, 6vw, 52px);
+
+  /* Fluid spacing */
+  --space-xs: clamp(8px, 1.5vw, 12px);
+  --space-sm: clamp(12px, 2vw, 16px);
+  --space-md: clamp(16px, 2.5vw, 24px);
+  --space-lg: clamp(24px, 4vw, 40px);
+  --space-xl: clamp(40px, 6vw, 80px);
 }
 
-body.home-page header {
-  position: relative;
+/* --- Global Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-/* --- Global Reset & Font --- */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f6fa;
-  color: #333;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  line-height: 1.3;
 }
 
 h2 {
-  color: #002b1a;
-  margin-bottom: 20px;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  font-size: var(--fs-lg);
 }
 
-/* --- Header --- */
+p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- App Page Wrapper --- */
+.app-page {
+  padding: clamp(10px, 3vw, 20px);
+  margin: 0 auto;
+}
+
 /* =========================
    GLOBAL HEADER / NAVBAR
 ========================= */
@@ -32,41 +96,45 @@ header {
   top: 0;
   z-index: 1000;
   min-height: 60px;
-  padding: 14px 40px;
+  padding: 14px clamp(16px, 5vw, 60px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  background: #002b1a;
-  color: #fff;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 header .logo {
-  font-size: 20px;
+  font-size: clamp(16px, 2.5vw, 20px);
   font-weight: 600;
   white-space: nowrap;
 }
 
 header nav {
   display: flex;
-  gap: 25px;
+  gap: clamp(10px, 2vw, 25px);
   align-items: center;
 }
 
 header nav a {
   text-decoration: none;
-  font-size: 15px;
+  font-size: clamp(13px, 1.5vw, 15px);
   font-weight: 500;
-  padding: 8px 12px;
-  color: #fff;
+  padding: 8px clamp(6px, 1.2vw, 12px);
+  color: var(--color-white);
   transition: 0.3s ease;
   white-space: nowrap;
 }
 
+header nav a:hover {
+  color: var(--color-accent);
+}
+
 header nav a.active {
-  color: #ffa807;
-  border-bottom: 2px solid #ffa807;
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
 }
 
 /* Hamburger button */
@@ -75,53 +143,110 @@ header nav a.active {
   background: none;
   border: none;
   font-size: 22px;
-  color: #fff;
+  color: var(--color-white);
   cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+
+.nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* =========================
-   RESPONSIVE BREAKPOINTS
+   RESPONSIVE HEADER
 ========================= */
 
 /* Mobile */
 @media (max-width: 768px) {
   header {
-    padding: 12px 18px;
-    flex-direction: column;
-    align-items: stretch;
+    padding: 12px 16px;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   .nav-toggle {
-    display: block;
-    align-self: flex-end;
+    display: flex;
   }
 
   header nav {
     flex-direction: column;
     width: 100%;
-    gap: 12px;
+    gap: 8px;
     margin-top: 10px;
+    padding-bottom: 10px;
   }
 
   header nav a {
     text-align: center;
-    padding: 10px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 6px;
+    padding: 12px 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    width: 100%;
+    font-size: 15px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  header nav.closed {
+  /* Nav hidden by default on mobile — toggled by JS */
+  header nav.nav-closed {
     display: none;
+  }
+
+  header nav.nav-open {
+    display: flex;
+  }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+  header {
+    padding: 10px 12px;
+  }
+
+  header .logo {
+    font-size: 15px;
+  }
+}
+
+/* On desktop, nav always visible regardless of JS toggle class */
+@media (min-width: 769px) {
+  header nav.nav-closed,
+  header nav.nav-open {
+    display: flex !important;
+    flex-direction: row;
+    width: auto;
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+
+  .nav-toggle {
+    display: none !important;
   }
 }
 
 /* Tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
   header {
-    padding: 14px 30px;
+    padding: 14px 24px;
   }
+
   header nav {
-    gap: 20px;
+    gap: 14px;
+  }
+
+  header nav a {
+    font-size: 13px;
+    padding: 8px 8px;
   }
 }
 
@@ -130,39 +255,50 @@ header nav a.active {
   header {
     padding: 16px 60px;
   }
+
   header nav a {
-    font-size: 16px;
-    padding: 10px 16px;
+    font-size: 15px;
+    padding: 10px 14px;
   }
 }
 
+/* Wide screens */
+@media (min-width: 1600px) {
+  header {
+    padding: 18px 80px;
+  }
 
-/* --- Forms & Containers --- */
+  header nav a {
+    font-size: 16px;
+  }
+}
+
+/* --- Containers --- */
 .container {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 25px;
-  border-radius: 12px;
-  background: #fff !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+  width: 100%;
+  max-width: clamp(320px, 95%, 900px);
+  margin: clamp(16px, 4vw, 30px) auto;
+  padding: clamp(16px, 4vw, 25px);
+  border-radius: var(--radius-md);
+  background: var(--color-white) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
 }
 
 .extra-form-container {
-    padding: 40px !important; 
+  padding: clamp(20px, 5vw, 40px) !important;
 }
 
-
-
+/* --- Forms --- */
 form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(14px, 2.5vw, 20px);
 }
 
 label {
   display: flex;
   flex-direction: column;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   font-weight: 500;
   color: #444;
 }
@@ -171,31 +307,42 @@ label span {
   margin-bottom: 6px;
 }
 
-input, select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+input, select, textarea {
+  padding: clamp(9px, 1.5vw, 10px) clamp(10px, 1.8vw, 12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  width: 100%;
+  min-height: 44px; /* touch-friendly */
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.1);
 }
 
 button {
-  padding: 10px 18px;
+  padding: clamp(9px, 1.5vw, 10px) clamp(14px, 2.5vw, 18px);
   border: none;
-  border-radius: 6px;
-  margin-top: 28px;
+  border-radius: var(--radius-sm);
+  margin-top: clamp(16px, 3vw, 28px);
   cursor: pointer;
   font-weight: 500;
+  font-size: var(--fs-sm);
   transition: all 0.3s ease;
+  min-height: 44px; /* touch-friendly */
 }
 
 button[type="submit"] {
-  background-color: #006400;
-  color: white;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
 }
 
 button[type="button"] {
-  background-color: #004080;
-  color: white;
+  background-color: var(--color-blue);
+  color: var(--color-white);
 }
 
 button:hover {
@@ -204,21 +351,43 @@ button:hover {
 
 span.error {
   color: red;
-  font-size: 12px;
+  font-size: var(--fs-xs);
   margin-top: 3px;
 }
 
+/* Mobile form fixes */
+@media (max-width: 480px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  button[type="submit"],
+  button[type="button"] {
+    width: 100%;
+  }
+}
+
 /* --- Table for Report --- */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-sm);
+}
+
 table {
   width: 100%;
+  min-width: 480px;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: var(--space-md);
+  font-size: var(--fs-sm);
 }
 
 table th, table td {
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: clamp(8px, 1.5vw, 10px);
+  border: 1px solid var(--color-border);
   text-align: left;
+  white-space: nowrap;
 }
 
 table th {
@@ -227,33 +396,34 @@ table th {
 }
 
 table button {
-  background: #006400;
-  color: white;
+  background: var(--color-secondary);
+  color: var(--color-white);
   padding: 6px 10px;
-  font-size: 13px;
+  font-size: var(--fs-xs);
+  margin-top: 0;
+  min-height: unset;
 }
 
-/* --- Misc --- */
-p {
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
+/* --- Pagination --- */
 .pagination {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-top: 15px;
   gap: 6px;
 }
 
 .pagination button {
-  padding: 6px 12px;
+  padding: 8px 14px;
   border: none;
-  border-radius: 6px;
-  background-color: #004080;
-  color: white;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-blue);
+  color: var(--color-white);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 0;
+  font-size: var(--fs-xs);
+  min-height: 36px;
 }
 
 .pagination button:hover {
@@ -261,35 +431,32 @@ p {
 }
 
 .pagination button.active {
-  background-color: #ffa807;
+  background-color: var(--color-accent);
   color: black;
 }
 
 /* =====================================================
-   BUSINESS / PUBLIC PAGES (SAFE NAMESPACE)
+   BUSINESS / PUBLIC PAGES
 ===================================================== */
 
-/* Page Wrapper */
 .biz-page {
-  padding: 20px 0;
+  padding: clamp(12px, 3vw, 20px) 0;
 }
 
-/* Title */
 .biz-title {
-  font-size: 28px;
-  color: #002b1a;
-  margin-bottom: 20px;
+  font-size: var(--fs-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
 }
 
-/* Breadcrumb */
 .biz-breadcrumb {
-  font-size: 14px;
+  font-size: var(--fs-sm);
   margin-bottom: 15px;
 }
 
 .biz-breadcrumb a {
   text-decoration: none;
-  color: #004080;
+  color: var(--color-blue);
   font-weight: 500;
 }
 
@@ -297,17 +464,15 @@ p {
   text-decoration: underline;
 }
 
-/* Card Grid */
 .biz-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(14px, 2.5vw, 20px);
 }
 
-/* Cards */
 .biz-card {
-  background: #fff;
-  padding: 22px;
+  background: var(--color-white);
+  padding: clamp(16px, 3vw, 22px);
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -320,37 +485,67 @@ p {
 
 .biz-card h3 {
   margin-bottom: 10px;
-  color: #006400;
-  font-size: 18px;
+  color: var(--color-secondary);
+  font-size: var(--fs-md);
 }
 
 .biz-card p {
-  font-size: 14px;
+  font-size: var(--fs-sm);
   color: #444;
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .biz-title {
-    font-size: 22px;
+    font-size: clamp(20px, 5vw, 24px);
   }
 }
 
 /* ======================
-   MODERN LOANS PAGE
+   LOANS PAGE
 ====================== */
 
+.loans-page {
+  width: 100%;
+  background: var(--color-bg);
+}
+
+/* HERO */
+.loans-hero {
+  min-height: clamp(50vh, 70vh, 80vh);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(30px, 8vw, 60px) clamp(16px, 5vw, 40px);
+}
+
+.loans-hero h1 {
+  font-size: var(--fs-hero);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.loans-hero p {
+  font-size: clamp(14px, 2vw, 16px);
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+/* LOAN HERO (alternate style) */
 .loan-hero {
-  background: linear-gradient(135deg, #002b1a, #006400);
-  color: #fff;
-  padding: 50px 20px;
-  border-radius: 16px;
-  margin-bottom: 50px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-white);
+  padding: clamp(30px, 6vw, 50px) clamp(16px, 4vw, 20px);
+  border-radius: var(--radius-lg);
+  margin-bottom: clamp(30px, 5vw, 50px);
   text-align: center;
 }
 
 .loan-hero h1 {
-  font-size: 34px;
+  font-size: var(--fs-xl);
 }
 
 .loan-hero p {
@@ -358,13 +553,27 @@ p {
   opacity: 0.9;
 }
 
-/* Loan Blocks */
+/* LOAN ROW */
+.loan-row {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 80px) clamp(16px, 4vw, 20px);
+  display: flex;
+  align-items: center;
+  gap: clamp(30px, 5vw, 60px);
+}
+
+.loan-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* LOAN BLOCKS (alternate style) */
 .loan-block {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 60px;
+  gap: clamp(20px, 4vw, 40px);
+  margin-bottom: clamp(30px, 5vw, 60px);
 }
 
 .loan-block.reverse {
@@ -373,28 +582,27 @@ p {
 
 .loan-block img {
   width: 42%;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
 }
 
-/* Text */
 .loan-text {
   width: 58%;
 }
 
 .loan-text h2 {
-  color: #002b1a;
+  color: var(--color-primary);
   margin-bottom: 8px;
 }
 
 .loan-tagline {
-  font-size: 15px;
-  color: #006400;
+  font-size: clamp(13px, 1.8vw, 15px);
+  color: var(--color-secondary);
   font-weight: 600;
   margin-bottom: 18px;
 }
 
-/* Points */
 .loan-points {
   list-style: none;
   padding: 0;
@@ -405,88 +613,26 @@ p {
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   color: #444;
 }
 
 .loan-points svg {
-  color: #ffa807;
+  color: var(--color-accent);
   font-size: 16px;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .loan-block,
-  .loan-block.reverse {
-    flex-direction: column;
-  }
-
-  .loan-text,
-  .loan-block img {
-    width: 100%;
-  }
-
-  .loan-hero h1 {
-    font-size: 26px;
-  }
-}
-
-/* ===========================
-   LOANS PAGE – FINTECH UI
-=========================== */
-
-.loans-page {
-  width: 100%;
-  background: #f5f6fa;
-}
-
-/* HERO */
-.loans-hero {
-  min-height: 70vh;
-  background: linear-gradient(135deg, #002b1a, #006400);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.loans-hero h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-
-.loans-hero p {
-  font-size: 16px;
-  opacity: 0.9;
-}
-
-/* LOAN ROW */
-.loan-row {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 80px 20px;
-  display: flex;
-  align-items: center;
-  gap: 60px;
-}
-
-.loan-row.reverse {
-  flex-direction: row-reverse;
+  flex-shrink: 0;
 }
 
 /* ICON */
 .loan-icon {
-  width: 110px;
-  height: 110px;
+  width: clamp(80px, 10vw, 110px);
+  height: clamp(80px, 10vw, 110px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 44px;
-  color: #fff;
+  font-size: clamp(32px, 5vw, 44px);
+  color: var(--color-white);
   flex-shrink: 0;
   animation: float 4s ease-in-out infinite;
 }
@@ -509,13 +655,13 @@ p {
 }
 
 .loan-content h2 {
-  font-size: 26px;
-  color: #002b1a;
+  font-size: clamp(20px, 3vw, 26px);
+  color: var(--color-primary);
   margin-bottom: 12px;
 }
 
 .loan-content p {
-  font-size: 15px;
+  font-size: clamp(13px, 1.8vw, 15px);
   color: #444;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -526,128 +672,135 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
-  border-radius: 30px;
+  padding: clamp(10px, 1.5vw, 12px) clamp(18px, 3vw, 24px);
+  border-radius: var(--radius-pill);
   border: none;
-  background: #002b1a;
-  color: #fff;
-  font-size: 14px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--fs-sm);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-height: 44px;
 }
 
 .loan-btn:hover {
-  background: #006400;
+  background: var(--color-secondary);
   transform: translateX(4px);
 }
 
-/* ANIMATION */
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
   100% { transform: translateY(0); }
 }
 
-/* MOBILE */
+/* LOAN RESPONSIVE */
 @media (max-width: 768px) {
-  .loans-hero h1 {
-    font-size: 30px;
-  }
-
   .loan-row,
-  .loan-row.reverse {
+  .loan-row.reverse,
+  .loan-block,
+  .loan-block.reverse {
     flex-direction: column;
     text-align: center;
-    gap: 30px;
+    gap: 24px;
   }
 
+  .loan-text,
+  .loan-block img,
   .loan-content {
+    width: 100%;
     max-width: 100%;
+  }
+
+  .loan-points li {
+    justify-content: center;
   }
 }
 
 /* =========================
-   MODERN CONTACT SECTION
+   CONTACT SECTIONS
 ========================= */
 
+/* Modern dark contact */
 .contact-modern {
-  max-width: 1100px;
-  margin: 80px auto;
-  padding: 60px;
+  max-width: clamp(300px, 95%, 1100px);
+  margin: clamp(40px, 7vw, 80px) auto;
+  padding: clamp(24px, 5vw, 60px);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  background: linear-gradient(135deg, #002b1a, #006400);
-  border-radius: 24px;
-  color: #fff;
+  gap: clamp(24px, 5vw, 60px);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border-radius: var(--radius-xl);
+  color: var(--color-white);
 }
 
-/* LEFT INFO */
 .contact-info h2 {
-  font-size: 34px;
+  font-size: clamp(24px, 4vw, 34px);
+  color: var(--color-white);
   margin-bottom: 14px;
 }
 
 .contact-info p {
-  font-size: 15px;
+  font-size: clamp(13px, 1.8vw, 15px);
   line-height: 1.7;
   opacity: 0.95;
 }
 
 .contact-details p {
   margin-top: 18px;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   opacity: 0.9;
 }
 
-/* FORM BOX */
 .contact-form-box {
-  background: #ffffff;
-  padding: 40px;
+  background: var(--color-white);
+  padding: clamp(20px, 4vw, 40px);
   border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-  color: #333;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  color: var(--color-text);
 }
 
 .contact-form-box h3 {
   margin-bottom: 20px;
-  color: #002b1a;
+  color: var(--color-primary);
+  font-size: var(--fs-md);
 }
 
-/* FORM */
+/* Modern form */
 .modern-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: clamp(12px, 2vw, 16px);
 }
 
 .modern-form input,
 .modern-form textarea {
-  padding: 14px 16px;
+  padding: clamp(10px, 1.8vw, 14px) clamp(12px, 2vw, 16px);
   border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  border: 1px solid var(--color-border);
+  font-size: var(--fs-sm);
+  width: 100%;
 }
 
 .modern-form input:focus,
 .modern-form textarea:focus {
   outline: none;
-  border-color: #006400;
+  border-color: var(--color-secondary);
 }
 
-/* BUTTON */
 .modern-form button {
   margin-top: 10px;
-  padding: 14px;
-  border-radius: 30px;
+  padding: clamp(10px, 1.8vw, 14px);
+  border-radius: var(--radius-pill);
   border: none;
-  background: linear-gradient(135deg, #002b1a, #006400);
-  color: #fff;
-  font-size: 14px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-white);
+  font-size: var(--fs-sm);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .modern-form button:hover {
@@ -655,300 +808,348 @@ p {
   opacity: 0.9;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
   .contact-modern {
     grid-template-columns: 1fr;
-    padding: 40px 25px;
-  }
-
-  .contact-info h2 {
-    font-size: 26px;
   }
 }
 
-/* ==========================
-   CLEAN CONTACT SECTION
-========================== */
-
+/* Clean contact */
 .contact-clean {
-  max-width: 1100px;
-  margin: 80px auto;
-  padding: 0 20px;
+  max-width: clamp(300px, 95%, 1100px);
+  margin: clamp(40px, 7vw, 80px) auto;
+  padding: 0 clamp(16px, 4vw, 20px);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: clamp(24px, 5vw, 60px);
 }
 
-/* LEFT */
 .contact-left h2 {
-  font-size: 30px;
-  color: #002b1a;
+  font-size: clamp(22px, 3.5vw, 30px);
+  color: var(--color-primary);
   margin-bottom: 10px;
 }
 
 .contact-desc {
-  font-size: 15px;
+  font-size: clamp(13px, 1.8vw, 15px);
   color: #555;
   margin-bottom: 30px;
 }
 
-/* FORM */
 .contact-form-clean {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: clamp(12px, 2vw, 16px);
   max-width: 420px;
 }
 
 .contact-form-clean input,
 .contact-form-clean textarea {
-  padding: 12px 14px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  padding: clamp(10px, 1.5vw, 12px) 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: var(--fs-sm);
+  width: 100%;
 }
 
 .contact-form-clean input:focus,
 .contact-form-clean textarea:focus {
   outline: none;
-  border-color: #006400;
+  border-color: var(--color-secondary);
 }
 
-/* BUTTON */
 .contact-form-clean button {
   width: fit-content;
-  padding: 12px 26px;
-  border-radius: 30px;
+  padding: clamp(10px, 1.5vw, 12px) 26px;
+  border-radius: var(--radius-pill);
   border: none;
-  background: #002b1a;
-  color: #fff;
-  font-size: 14px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--fs-sm);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 0;
 }
 
 .contact-form-clean button:hover {
-  background: #006400;
+  background: var(--color-secondary);
 }
 
-/* INFO */
 .contact-info-clean {
   margin-top: 30px;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   color: #444;
 }
 
-/* MAP */
 .contact-map iframe {
   width: 100%;
   height: 100%;
-  min-height: 420px;
+  min-height: clamp(280px, 40vh, 420px);
   border: 0;
   border-radius: 14px;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
   .contact-clean {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
   }
 
   .contact-form-clean {
     max-width: 100%;
   }
+}
 
-  .contact-map iframe {
-    min-height: 300px;
+/* =========================
+   GRANULAR BREAKPOINTS
+========================= */
+
+/* Extra small phones (≤320px) */
+@media (max-width: 320px) {
+  .container {
+    padding: 12px 8px;
+    margin: 10px auto;
+  }
+
+  header .logo {
+    font-size: 14px;
+  }
+
+  button[type="submit"],
+  button[type="button"] {
+    width: 100%;
+    padding: 12px;
   }
 }
 
-/* App.css - Enhanced with full responsive screen support */
-/* ... (your existing CSS remains unchanged until the media queries section) ... */
-
-/* =====================================================
-   FULL RESPONSIVE SCREEN SUPPORT
-   Mobile-first approach with tablet, laptop, desktop, large screens
-===================================================== */
-
-/* Mobile-first base styles already in place */
-
-/* Small tablets and large phones (portrait to landscape) */
-@media (min-width: 481px) and (max-width: 767px) {
-  
+/* Small phones (321px–480px) */
+@media (min-width: 321px) and (max-width: 480px) {
   .container {
-    margin: 20px auto;
-    padding: 20px 15px;
+    margin: 12px auto;
+    padding: 14px 12px;
   }
-  
+
   form {
     grid-template-columns: 1fr;
-    gap: 15px;
   }
-  
-  .biz-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 15px;
+
+  button[type="submit"],
+  button[type="button"] {
+    width: 100%;
+  }
+
+  .biz-title {
+    font-size: 20px;
   }
 }
 
-/* Tablets (portrait and landscape) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  
+/* Small tablets (481px–767px) */
+@media (min-width: 481px) and (max-width: 767px) {
   .container {
     max-width: 95%;
-    padding: 25px;
   }
-  
+
   .biz-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
-  
-  /* Loan sections */
+}
+
+/* Tablets (768px–1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    max-width: 95%;
+  }
+
+  .biz-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
   .loan-row,
   .loan-row.reverse {
     gap: 40px;
     padding: 60px 20px;
   }
-  
-  .loan-icon {
-    width: 90px;
-    height: 90px;
-    font-size: 36px;
-  }
-  
+
   .contact-modern {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 40px 30px;
+    gap: 36px;
+    padding: 36px 28px;
   }
 }
 
-/* Laptops and small desktops */
+/* Laptops (1024px–1199px) */
 @media (min-width: 1024px) and (max-width: 1199px) {
   .container {
     max-width: 950px;
   }
-  
-  .loans-hero h1 {
-    font-size: 38px;
-  }
-  
-  /* .loan-row {
-    max-width: 1000px;
-  } */
 }
 
-/* Large desktops and wide screens */
+/* Large desktops (1200px–1599px) */
 @media (min-width: 1200px) and (max-width: 1599px) {
   .container {
     max-width: 1000px;
   }
-  
-  .loans-hero h1 {
-    font-size: 46px;
-  }
-  
+
   .loan-row {
     max-width: 1150px;
     gap: 80px;
   }
-  
+
   .contact-modern {
     max-width: 1200px;
   }
 }
 
-/* Extra large screens (4K+, widescreens) */
+/* Wide / 4K screens (≥1600px) */
 @media (min-width: 1600px) {
   .container {
     max-width: 1200px;
     padding: 40px;
   }
-  
+
   .loans-hero {
     padding: 60px 40px;
   }
-  
-  .loans-hero h1 {
-    font-size: 52px;
-  }
-  
+
   .loan-row {
     max-width: 1300px;
     gap: 100px;
   }
-  
+
   .contact-modern {
     max-width: 1300px;
     padding: 80px;
   }
-  
+
   .biz-grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
 
-/* Legacy mobile styles (update your existing ones for consistency) */
-@media (max-width: 480px) {
-  .container {
-    margin: 15px auto;
-    padding: 15px 10px;
+/* =========================
+   TOUCH & ACCESSIBILITY
+========================= */
+
+/* Improve tap targets on touch devices */
+@media (pointer: coarse) {
+  button, a, input, select, textarea {
+    min-height: 44px;
   }
-  
-  button[type="submit"],
-  button[type="button"] {
-    width: 100%;
-  }
-  
-  .biz-title {
-    font-size: 20px;
-  }
-  
-  .loan-hero h1 {
-    font-size: 22px;
-  }
-  
-  .contact-form-box {
-    padding: 25px;
+
+  header nav a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
-/* Touch devices and hover improvements */
-@media (hover: hover) {
-  .biz-card:hover,
-  button:hover,
-  .loan-btn:hover {
-    /* Existing hover effects enhanced */
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-/* High DPI/Retina screens */
+/* High DPI / Retina */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .biz-card {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   }
-  
+
   .loan-block img {
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   }
 }
 
-/* Print styles */
+/* Print */
 @media print {
-  header, button, .pagination {
-    display: none;
+  header, button, .pagination, .nav-toggle {
+    display: none !important;
   }
-  
+
   body {
     background: white;
+    font-size: 12pt;
   }
-  
+
   .container {
     box-shadow: none;
     border: 1px solid #ccc;
+    max-width: 100%;
   }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+/* =========================
+   HOME PAGE OVERLAP FIX
+========================= */
+
+/* Prevent any section from overflowing its bounds */
+section, .section, .hero-section, .home-section {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fix contact/newsletter input yellow underline overflow on mobile */
+.contact-section input,
+.newsletter input,
+.home-page input,
+section input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  border-bottom: 2px solid #ffa807; /* keep yellow underline contained */
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Fix cards overlapping on mobile */
+.service-cards,
+.home-cards,
+.cards-grid,
+.features-grid,
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .service-cards,
+  .home-cards,
+  .cards-grid,
+  .features-grid,
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/* Fix any absolute/relative positioned elements causing overflow */
+.home-container,
+.home-wrapper,
+.home-page {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Fix button overflow in hero sections */
+.hero-section button,
+.hero-content button,
+.cta-section button {
+  white-space: nowrap;
+  max-width: 100%;
 }

@@ -3,7 +3,6 @@ import './App.css';
 import Header from './components/Header';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
-import Service from './pages/Service';
 import FixedDeposit from './pages/FixedDeposit';
 import Loan from './pages/Loan';
 import Chit from './pages/Chit';
@@ -16,49 +15,37 @@ import TravelZone from './pages/TravelZone';
 import Insurance from './pages/Insurance';
 import ScrollToTop from "./components/ScrollToTop";
 
+// Pages that use full-width layout (no app-page wrapper)
+const FULL_WIDTH_PATHS = ["/", "/business-loans", "/enterprises", "/travel-zone", "/insurance-plan"];
+
 function AppLayout() {
   const location = useLocation();
+  const isFullWidth = FULL_WIDTH_PATHS.includes(location.pathname);
 
-  const isHome = location.pathname === "/";
+  const allRoutes = (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/fixed-deposit" element={<ProtectedRoute><FixedDeposit /></ProtectedRoute>} />
+      <Route path="/loan" element={<ProtectedRoute><Loan /></ProtectedRoute>} />
+      <Route path="/chit" element={<ProtectedRoute><Chit /></ProtectedRoute>} />
+      <Route path="/report" element={<ProtectedRoute><Report /></ProtectedRoute>} />
+      <Route path="/business-loans" element={<LoansBusiness />} />
+      <Route path="/enterprises" element={<Enterprises />} />
+      <Route path="/travel-zone" element={<TravelZone />} />
+      <Route path="/insurance-plan" element={<Insurance />} />
+    </Routes>
+  );
 
   return (
     <>
-      {/* Always show Header */}
       <Header />
-
-      {/* No container only for Home */}
-      {isHome ? (
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/fixed-deposit" element={<ProtectedRoute><FixedDeposit /></ProtectedRoute>} />
-          <Route path="/loan" element={<ProtectedRoute><Loan /></ProtectedRoute>} />
-          <Route path="/chit" element={<ProtectedRoute><Chit /></ProtectedRoute>} />
-          <Route path="/report" element={<ProtectedRoute><Report /></ProtectedRoute>} />
-          <Route path="/business-loans" element={<LoansBusiness />} />
-          <Route path="/enterprises" element={<Enterprises />} />
-          <Route path="/travel-zone" element={<TravelZone />} />
-          <Route path="/insurance-plan" element={<Insurance />} />
-
-          
-        </Routes>
+      {isFullWidth ? (
+        allRoutes
       ) : (
         <div className="app-page">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/fixed-deposit" element={<ProtectedRoute><FixedDeposit /></ProtectedRoute>} />
-            <Route path="/loan" element={<ProtectedRoute><Loan /></ProtectedRoute>} />
-            <Route path="/chit" element={<ProtectedRoute><Chit /></ProtectedRoute>} />
-            <Route path="/report" element={<ProtectedRoute><Report /></ProtectedRoute>} />
-            <Route path="/business-loans" element={<LoansBusiness />} />
-            <Route path="/enterprises" element={<Enterprises />} />
-            <Route path="/travel-zone" element={<TravelZone />} />
-            <Route path="/insurance-plan" element={<Insurance />} />
-
-          </Routes>
+          {allRoutes}
         </div>
       )}
     </>
@@ -68,7 +55,7 @@ function AppLayout() {
 export default function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop /> 
+      <ScrollToTop />
       <AppLayout />
     </BrowserRouter>
   );

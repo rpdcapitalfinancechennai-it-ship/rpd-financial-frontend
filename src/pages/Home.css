@@ -39,19 +39,18 @@ body {
   padding: 0 20px;
 } */
 
-/* Hero Section */
 .hero-section {
-  min-height: 100vh;
-  padding: 2rem 1rem;
+ min-height: 100vh;
+  padding: 0;
+  margin-top: -80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #7c3aed 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
   overflow: hidden;
 }
-
 .hero-content {
-  padding: 4rem 2rem;
+  padding: 1rem 2rem;
   max-width: 500px;
 }
 
@@ -67,14 +66,15 @@ body {
   box-shadow: var(--shadow);
 }
 
-.hero-title {
+.hero-section .hero-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--white), var(--gray-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+ -webkit-text-fill-color: #1a3a2a !important; /* swap color here */
+  color: #1a3a2a !important;
 }
 
 .gradient-text {
@@ -85,11 +85,11 @@ body {
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: var(--gray-light);
+  color: var(--navy) !important;
+  -webkit-text-fill-color: var(--navy) !important;
   margin-bottom: 3rem;
   font-weight: 400;
 }
-
 .hero-stats {
   display: flex;
   gap: 2rem;
@@ -113,7 +113,7 @@ body {
 }
 
 .stat-label {
-  color: var(--gray-light);
+  color: var(--navy);
   font-size: 0.85rem;
   font-weight: 500;
 }
@@ -160,7 +160,7 @@ body {
 }
 
 .hero-image {
-  height: 100vh;
+  height: 70vh;
   position: relative;
 }
 
@@ -168,6 +168,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  filter: none;
 }
 
 /* Services Section - Perfect 4-column */
